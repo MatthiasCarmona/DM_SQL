@@ -6,55 +6,67 @@ USE Bibliothèque;
 
 CREATE TABLE Ouvrage(
 
-isbn 		NUMBER(10) NOT NULL,
+isbn 		INTEGER(10) NOT NULL,
 titre 		VARCHAR(200),
 auteur 		VARCHAR(80),
 genre 		VARCHAR(5),
-editeur		VARCHAR(80)
+editeur 	VARCHAR(80),
 
-CONSTRAINT PK_Ouvrage PRIMARY KEY (isbn));
+CONSTRAINT PK_Ouvrage PRIMARY KEY(isbn)
+)
+ENGINE=Innodb;
 
 CREATE TABLE Exemplaire(
 
 isbn 		INTEGER(10) NOT NULL,
-numero 		NUMBER(3) NOT NULL,
-etat 		CHAR(5)
+numero 		TINYINT(3) NOT NULL,
+etat 		CHAR(5) CHECK(etat="NE" OR etat="BO" OR etat="MO" OR etat="MA"),
 
-CONSTRAINT PK_Exemplaire PRIMARY KEY (isbn,numero));
+CONSTRAINT PK_Exemplaire PRIMARY KEY(isbn,numero)
+)
+ENGINE=Innodb;
 
 CREATE TABLE Genre(
 
 code 		CHAR(5) NOT NULL,
-libelle		VARCHAR(80)
+libelle 	VARCHAR(80),
 
-CONSTRAINT PK_Genre PRIMARY KEY (code));
+CONSTRAINT PK_Genre PRIMARY KEY(code)
+)
+ENGINE=Innodb;
 
 CREATE TABLE Membre(
 
-numero 		NUMBER(10) NOT NULL,
-nom			VARCHAR(80),
+numero 		INTEGER(10) NOT NULL,
+nom 		VARCHAR(80),
 prenom 		VARCHAR(80),
-adresse		VARCHAR(200),
+adresse 	VARCHAR(200),
 telephone 	CHAR(10),
 adhesion 	DATE,
-duree 		NUMBER(2)
+duree 		TINYINT(2) CHECK(duree<=0),
 
-CONSTRAINT PK_Membre PRIMARY KEY (numero));
+CONSTRAINT PK_Membre PRIMARY KEY(numero)
+)
+ENGINE=Innodb;
 
 CREATE TABLE Emprunt(
 
-numero 		NUMBER(10) NOT NULL,
-membre 		NUMBER(6),
-creeLe 		DATE	
+numero 		INTEGER(10) NOT NULL,
+membre 		INTEGER(6),
+creeLe 		DATE,	
 
-CONSTRAINT PK_Emprunt PRIMARY KEY (numero));
+CONSTRAINT PK_Emprunt PRIMARY KEY(numero)
+)
+ENGINE=Innodb;
 
 CREATE TABLE DetailsEmprunt(
 
-emprunt 	NUMBER(10) NOT NULL,
-numero 		NUMBER(3) NOT NULL,
-isbn 		NUMBER(10),
-exemplaire 	NUMBER(3),
-renduLe 	DATE	
+emprunt 	INTEGER(10) NOT NULL,
+numero 		TINYINT(3) NOT NULL,
+isbn 		INTEGER(10),
+exemplaire 	TINYINT(3),
+renduLe 	DATE,	
 
-CONSTRAINT PK_DetailsEmprunt PRIMARY KEY (emprunt,numero));
+CONSTRAINT PK_DetailsEmprunt PRIMARY KEY(emprunt,numero)
+)
+ENGINE=Innodb;
