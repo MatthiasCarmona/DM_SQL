@@ -1,0 +1,15 @@
+INSERT INTO ouvrage ("ISBN","Titre","Auteur","Genre","Editeur")
+VALUES ("2020549522","L\'aventure des manuscrits de la mer morte","REC","Seuil"),
+("2020549522","L\'aventure des manuscrits de la mer morte","REC","Seuil"),
+("2038704015","De la terre à la lune","Jules Verne","ROM","Larousse"), 
+("2070367177","Le curé de Tours","Honoré de Balzac","ROM","Gallimard"),  
+("2070400816","Le Bourgeois gentilhomme","Molière","THE","Gallimard"),
+("2080720872","Boule de suif","Guy de Maupassant","REC","Flammarion"),
+("2203314168","LEFRANC-L'ultimatum","Martin Carin","BD","Casterman"),
+("2253006327","Vingt mille lieues sous les mers","Jules Verne","ROM","LGF"),         
+("2253010219","Le crime de l\'Orient Express","Agatha Christie","POL","Livre Poche"),
+("2266085816","Pantagruel","François Rabelais","ROM","Pocket"), 
+("2266091611","Voyage au centre de la terre","Jules Verne","Rom","Pocket"),      
+("2746021285","HTML entrainez-vous pour maitriser le code","Luc Van Lancker","INFO","ENI"),         
+("2746026090","SQL  J Gabillaud","INF","ENI"),         
+("2877065073","La gloire de mon père","Marcel Pagnol","ROM","Fallois);     
